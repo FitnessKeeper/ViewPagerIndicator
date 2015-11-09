@@ -227,11 +227,11 @@ public class CirclePageIndicator extends View implements PageIndicator {
             shortPaddingBefore = getPaddingLeft();
         }
 
-        final float threeRadius = mRadius * 3;
+        final float fiveRadius = mRadius * 5;
         final float shortOffset = shortPaddingBefore + mRadius;
         float longOffset = longPaddingBefore + mRadius;
         if (mCentered) {
-            longOffset += ((longSize - longPaddingBefore - longPaddingAfter) / 2.0f) - ((count * threeRadius) / 2.0f);
+            longOffset += ((longSize - longPaddingBefore - longPaddingAfter) / 2.0f) - ((count * fiveRadius) / 2.0f);
         }
 
         float dX;
@@ -244,7 +244,7 @@ public class CirclePageIndicator extends View implements PageIndicator {
 
         //Draw stroked circles
         for (int iLoop = 0; iLoop < count; iLoop++) {
-            float drawLong = longOffset + (iLoop * threeRadius);
+            float drawLong = longOffset + (iLoop * fiveRadius);
             if (mOrientation == HORIZONTAL) {
                 dX = drawLong;
                 dY = shortOffset;
@@ -264,9 +264,9 @@ public class CirclePageIndicator extends View implements PageIndicator {
         }
 
         //Draw the filled circle according to the current scroll
-        float cx = (mSnap ? mSnapPage : mCurrentPage) * threeRadius;
+        float cx = (mSnap ? mSnapPage : mCurrentPage) * fiveRadius;
         if (!mSnap) {
-            cx += mPageOffset * threeRadius;
+            cx += mPageOffset * fiveRadius;
         }
         if (mOrientation == HORIZONTAL) {
             dX = longOffset + cx;
